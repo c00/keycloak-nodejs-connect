@@ -1,4 +1,15 @@
-# Keycloak Node.js Adapter
+# Keycloak Node.js Adapter without Issuer Check
+
+## No issuer check
+
+The only change between this fork and the original is the removal of the issuer check. If your local url for the auth server is different than the one your clients use, the issuer check will fail and tokens will not be verified.
+
+While this is probably super useful and important and all that noise, there's also tons of requests on the internet requesting for some option to deal with different urls (all met with silence).
+
+The plugin still uses the auth url from the settings to fetch the public keys, so I don't see a way in which this can be abused.
+
+Having said that, don't use this unless you understand the risks.
+
 
 [![Dependency Status](https://img.shields.io/david/keycloak/keycloak-nodejs-connect.svg?style=flat-square)](https://david-dm.org/keycloak/keycloak-nodejs-connect)
 [![Coverage Status](https://coveralls.io/repos/github/keycloak/keycloak-nodejs-connect/badge.svg?branch=master)](https://coveralls.io/github/keycloak/keycloak-nodejs-connect?branch=master)

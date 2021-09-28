@@ -424,8 +424,8 @@ GrantManager.prototype.validateToken = function validateToken (token, expectedTy
       reject(new Error('invalid token (wrong type)'));
     } else if (token.content.iat < this.notBefore) {
       reject(new Error('invalid token (stale token)'));
-    } else if (token.content.iss !== this.realmUrl) {
-      reject(new Error('invalid token (wrong ISS)'));
+    // } else if (token.content.iss !== this.realmUrl) {
+    //   reject(new Error('invalid token (wrong ISS)'));
     } else {
       var audienceData = Array.isArray(token.content.aud) ? token.content.aud : [token.content.aud];
       if (expectedType === 'ID') {
